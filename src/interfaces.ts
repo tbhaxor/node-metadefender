@@ -68,10 +68,18 @@ export interface IApiLimits {
     error?: IApiLimitsError;
     data?: IApiLimitsData;
 }
+
+/**
+ * @interface IHashLookupVotes
+ */
 interface IHashLookupVotes {
     up: number;
     down: number;
 }
+
+/**
+ * @interface IHashLookupProcessInfo
+ */
 interface IHashLookupProcessInfo {
     user_agent: string;
     result: string;
@@ -80,6 +88,10 @@ interface IHashLookupProcessInfo {
     file_type_skipped_scan: boolean;
     blocked_reason: string;
 }
+
+/**
+ * @interface IHashLookupFileInfo
+ */
 interface IHashLookupFileInfo {
     file_size: number;
     upload_timestamp: string;
@@ -91,6 +103,10 @@ interface IHashLookupFileInfo {
     file_type_extension: string;
     display_name: string;
 }
+
+/**
+ * @interface IHashLookupScanResultsScanDetailsAV
+ */
 interface IHashLookupScanResultsScanDetailsAV {
     wait_time: number;
     threat_found: string;
@@ -98,9 +114,17 @@ interface IHashLookupScanResultsScanDetailsAV {
     scan_result_i: number;
     def_time: string;
 }
+
+/**
+ * @interface IHashLookupScanResultsScanDetails
+ */
 interface IHashLookupScanResultsScanDetails {
     [key: string]: IHashLookupScanResultsScanDetailsAV;
 }
+
+/**
+ * @interface IHashLookupScanResults
+ */
 interface IHashLookupScanResults {
     scan_details: IHashLookupScanResultsScanDetails;
     rescan_available: boolean;
@@ -114,6 +138,11 @@ interface IHashLookupScanResults {
     in_queue: number;
     scan_all_result_a: string;
 }
+
+/**
+ * @export
+ * @interface IHashLookup
+ */
 export interface IHashLookup {
     scan_result_history_length: number;
     votes: IHashLookupVotes;
@@ -128,11 +157,19 @@ export interface IHashLookup {
     rest_version: string;
 }
 
+/**
+ * @export
+ * @interface IFileBadgeOptions
+ */
 export interface IFileBadgeOptions {
     size?: string;
     type?: string;
 }
 
+/**
+ * @export
+ * @interface IHashLookups
+ */
 export interface IHashLookups {
     data_id: string;
     scan_result_i: number;
@@ -140,6 +177,9 @@ export interface IHashLookups {
     scan_details?: IHashLookupScanResultsScanDetails;
 }
 
+/**
+ * @interface IScanHistoryData
+ */
 interface IScanHistoryData {
     total_detected_avs: number;
     total_avs: number;
@@ -148,6 +188,10 @@ interface IScanHistoryData {
     data_id: string;
 }
 
+/**
+ * @export
+ * @interface IScanHistory
+ */
 export interface IScanHistory {
     success: boolean;
     error?: IApiInfoError;
