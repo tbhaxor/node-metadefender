@@ -127,3 +127,29 @@ export interface IHashLookup {
     share_file: number;
     rest_version: string;
 }
+
+export interface IFileBadgeOptions {
+    size?: string;
+    type?: string;
+}
+
+export interface IHashLookups {
+    data_id: string;
+    scan_result_i: number;
+    hash: string;
+    scan_details?: IHashLookupScanResultsScanDetails;
+}
+
+interface IScanHistoryData {
+    total_detected_avs: number;
+    total_avs: number;
+    scan_all_result_i: number;
+    start_time: string;
+    data_id: string;
+}
+
+export interface IScanHistory {
+    success: boolean;
+    error?: IApiInfoError;
+    data?: IScanHistoryData;
+}
