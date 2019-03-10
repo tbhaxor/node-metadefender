@@ -1,8 +1,8 @@
 import * as request from 'request';
-import { IApiInfo, IApiLimits } from './interfaces';
+import { IApiInfo, IApiLimits, IHashLookup } from './interfaces';
 
 class MetaDefender {
-    private api: string;
+    protected api: string;
     constructor(api: string) {
         this.api = api;
     }
@@ -48,5 +48,34 @@ class MetaDefender {
             );
         });
     }
+
+    public hashLookup(hash: string): Promise<IHashLookup> {
+        return new Promise((resolve, reject) => {
+            const header = {
+                apikey: this.api
+            };
+            request.get(
+                `https://api.metadefender.com/v2/hash/${hash}`,
+                {
+                    headers: header
+                },
+                (err, resp) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        // tslint:disable-next-line: no-unsafe-any
+                        const body: string = resp.body;
+                        if (body.includes('Not Found')) {
+                            reject(new Error('Not Found'));
+                        } else {
+                            // tslint:disable-next-line: no-unsafe-any
+                            resolve(JSON.parse(body));
+                        }
+                    }
+                }
+            );
+        });
+    }
 }
+
 export default MetaDefender;
