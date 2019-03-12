@@ -1,5 +1,5 @@
 import request = require('request');
-import { IIPReputation, IURLReputation, IIPReputations, IURLReputations } from './interfaces';
+import { IIPReputation, IIPReputations, IURLReputation, IURLReputations } from './interfaces';
 
 class ReputationService {
     private api: string;
