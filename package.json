@@ -4,14 +4,15 @@
   "description": "Metadefender wrapper for node js",
   "main": "dist/index.js",
   "scripts": {
+    "build": "grunt --gruntfile Gruntfile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tbhaxor/node-metadefender.git"
   },
-  "keywords": [],
-  "author": "Gurkirat Singh",
+  "keywords": ["metadefender", "tbhaxor", "gurkirat", "virus scan", "class", "wrapper", "ip scan", "domain scan"],
+  "author": "Gurkirat Singh <tbhaxor@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tbhaxor/node-metadefender/issues"
