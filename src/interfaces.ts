@@ -1,3 +1,5 @@
+import { FILE_TYPES } from '.';
+
 /**
  * @interface IApiInfoError
  */
@@ -98,7 +100,7 @@ interface IHashLookupFileInfo {
     md5: string;
     sha1: string;
     sha256: string;
-    file_type_category: string;
+    file_type_category: FILE_TYPES;
     file_type_description: string;
     file_type_extension: string;
     display_name: string;
@@ -429,7 +431,7 @@ export interface IMalwareHashFeed {
 
 interface IMalwareHashFeedData {
     data_id: string;
-    file_type_category: string;
+    file_type_category: FILE_TYPES;
     file_type_extension: string;
     md5: string;
     sha1: string;
@@ -449,7 +451,7 @@ export interface IFalsePositive {
 
 interface IFalsePositiveData {
     data_id: string;
-    file_type_category: string;
+    file_type_category: FILE_TYPES;
     file_type_extension: string;
     md5: string;
     sha1: string;
@@ -469,7 +471,7 @@ export interface IFalsePositiveEngine {
 
 interface IFalsePositiveEngineData {
     data_id: string;
-    file_type_category: string;
+    file_type_category: FILE_TYPES;
     file_type_extension: string;
     md5: string;
     sha1: string;
