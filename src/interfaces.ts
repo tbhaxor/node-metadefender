@@ -221,12 +221,12 @@ interface IIPReputationData {
 interface IIPReputationDataGeoInfoContinent {
     code: string;
     geoname_id: number;
-    names: object;
+    name: object;
 }
 interface IIPReputationDataGeoInfoCountry {
     geoname_id: number;
     iso_code: string;
-    names: object;
+    name: object;
 }
 interface IIPReputationDataGeoInfoLocation {
     latitude: number;
@@ -236,7 +236,7 @@ interface IIPReputationDataGeoInfoLocation {
 interface IIPReputationDataGeoInfoRegisteredCountry {
     geoname_id: number;
     iso_code: string;
-    names: object;
+    name: object;
 }
 interface IIPReputationDataGeoInfo {
     continent: IIPReputationDataGeoInfoContinent;
@@ -295,4 +295,84 @@ export interface IDomainReputation {
     success: boolean;
     error?: IError;
     data?: IDomainReputationData;
+}
+interface IIPReputationsData {
+    address: string;
+    lookup_results: IIPReputationsDataLookupResults;
+    geo_info: IIPReputationsDataGeoInfo;
+}
+interface IIPReputationsDataLookupResults {
+    start_time: string;
+    detected_by: number;
+    sources: IIPReputationsDataLookupResultsSources[];
+}
+interface IIPReputationsDataLookupResultsSources {
+    provider: string;
+    assessment: string;
+    detect_time: string;
+    update_time: string;
+    status: number;
+}
+interface IIPReputationsDataGeoInfo {
+    continent: IIPReputationsDataGeoInfoGeneric;
+    country: IIPReputationsDataGeoInfoGeneric;
+    city: IIPReputationsDataGeoInfoGeneric;
+    location: IIPReputationsDataGeoInfoLocation;
+    registered_country: IIPReputationsDataGeoInfoGeneric;
+    subdivisions: IIPReputationsDataGeoInfoGeneric[];
+}
+interface IIPReputationsDataGeoInfoGeneric {
+    code: string;
+    name: string;
+}
+interface IIPReputationsDataGeoInfoLocation {
+    latitude: number;
+    longitude: number;
+}
+export interface IIPReputations {
+    success?: boolean;
+    error?: IError;
+    data?: IIPReputationsData[];
+}
+interface IURLReputationsDataLookupResultsSource {
+    provider: string;
+    assessment: string;
+    detect_time: string;
+    update_time: string;
+    status: number;
+}
+interface IURLReputationsDataLookupResults {
+    start_time: string;
+    detected_by: number;
+    sources: IURLReputationsDataLookupResultsSource[];
+}
+interface IURLReputationsData {
+    address: string;
+    lookup_results: IURLReputationsDataLookupResults;
+}
+export interface IURLReputations {
+    success?: boolean;
+    error?: IError;
+    data?: IURLReputationsData[];
+}
+interface IDomainReputationsDataLookupResultsSource {
+    provider: string;
+    assessment: string;
+    detect_time: string;
+    update_time: string;
+    status: number;
+}
+interface IDomainReputationsDataLookupResults {
+    start_time: string;
+    detected_by: number;
+    sources: IDomainReputationsDataLookupResultsSource[];
+}
+interface IDomainReputationsData {
+    address: string;
+    lookup_results: IDomainReputationsDataLookupResults;
+}
+export interface IDomainReputations {
+    success?: boolean;
+    error?: IError;
+    data?: IDomainReputationsData;
 }

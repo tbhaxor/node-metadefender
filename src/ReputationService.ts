@@ -1,5 +1,5 @@
 import request = require('request');
-import { IIPReputation, IURLReputation } from './interfaces';
+import { IIPReputation, IURLReputation, IIPReputations, IURLReputations } from './interfaces';
 
 class ReputationService {
     private api: string;
@@ -68,15 +68,72 @@ class ReputationService {
         });
     }
 
-    public ipsReputation(ips: string[]): Promise<any> {
-        return new Promise((resolve, reject) => {});
+    public ipsReputation(ips: string[]): Promise<IIPReputations> {
+        return new Promise((resolve, reject) => {
+            request.post(
+                'https://api.metadefender.com/v4/ip/',
+                {
+                    body: JSON.stringify({ address: ips }),
+                    headers: {
+                        Authorization: `apikey ${this.api}`,
+                        'Content-Type': 'application/json'
+                    }
+                },
+                (err, res) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        // tslint:disable-next-line: no-unsafe-any
+                        resolve(JSON.parse(res.body));
+                    }
+                }
+            );
+        });
     }
-    public urlsReputation(urls: string[]): Promise<any> {
-        return new Promise((resolve, reject) => {});
+    public urlsReputation(urls: string[]): Promise<IURLReputations> {
+        return new Promise((resolve, reject) => {
+            request.post(
+                'https://api.metadefender.com/v4/url',
+                {
+                    body: JSON.stringify({ url: urls }),
+                    headers: {
+                        Authorization: `apikey ${this.api}`,
+                        'Content-Type': 'application/json'
+                    }
+                },
+                (err, res) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        // tslint:disable-next-line: no-unsafe-any
+                        resolve(JSON.parse(res.body));
+                    }
+                }
+            );
+        });
     }
     public domainsReputation(domains: string[]): Promise<any> {
-        return new Promise((resolve, reject) => {});
+        return new Promise((resolve, reject) => {
+            request.post(
+                'https://api.metadefender.com/v4/domain',
+                {
+                    body: JSON.stringify({ fqdn: domains }),
+                    headers: {
+                        Authorization: `apikey ${this.api}`,
+                        'Content-Type': 'application/json'
+                    }
+                },
+                (err, res) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        // tslint:disable-next-line: no-unsafe-any
+                        resolve(JSON.parse(res.body));
+                    }
+                }
+            );
+        });
     }
 }
 
-export { ReputationService };
+export default ReputationService;
