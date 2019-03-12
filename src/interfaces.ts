@@ -39,8 +39,8 @@ interface IApiInfoData {
  */
 export interface IApiInfo {
     success: boolean;
-    error?: IError;
-    data?: IApiInfoData;
+    error: IError;
+    data: IApiInfoData;
 }
 
 /**
@@ -67,8 +67,8 @@ interface IApiLimitsData {
  */
 export interface IApiLimits {
     success: boolean;
-    error?: IApiLimitsError;
-    data?: IApiLimitsData;
+    error: IApiLimitsError;
+    data: IApiLimitsData;
 }
 
 /**
@@ -164,8 +164,8 @@ export interface IHashLookup {
  * @interface IFileBadgeOptions
  */
 export interface IFileBadgeOptions {
-    size?: string;
-    type?: string;
+    size: string;
+    type: string;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface IHashLookups {
     data_id: string;
     scan_result_i: number;
     hash: string;
-    scan_details?: IHashLookupScanResultsScanDetails;
+    scan_details: IHashLookupScanResultsScanDetails;
 }
 
 /**
@@ -196,8 +196,8 @@ interface IScanHistoryData {
  */
 export interface IScanHistory {
     success: boolean;
-    error?: IError;
-    data?: IScanHistoryData;
+    error: IError;
+    data: IScanHistoryData;
 }
 
 interface IIPReputationDataScanResultsResult {
@@ -247,9 +247,9 @@ interface IIPReputationDataGeoInfo {
     registered_country: IIPReputationDataGeoInfoRegisteredCountry;
 }
 export interface IIPReputation {
-    err?: string;
-    success?: boolean;
-    data?: IIPReputationData;
+    err: string;
+    success: boolean;
+    data: IIPReputationData;
 }
 interface IURLReputationDataScanResultResult {
     alternativeid: string;
@@ -271,8 +271,8 @@ interface IURLReputationData {
 }
 export interface IURLReputation {
     success: boolean;
-    error?: IError;
-    data?: IURLReputationData;
+    error: IError;
+    data: IURLReputationData;
 }
 
 interface IDomainReputationDataScanResultResult {
@@ -295,8 +295,8 @@ interface IDomainReputationData {
 }
 export interface IDomainReputation {
     success: boolean;
-    error?: IError;
-    data?: IDomainReputationData;
+    error: IError;
+    data: IDomainReputationData;
 }
 interface IIPReputationsData {
     address: string;
@@ -332,9 +332,9 @@ interface IIPReputationsDataGeoInfoLocation {
     longitude: number;
 }
 export interface IIPReputations {
-    success?: boolean;
-    error?: IError;
-    data?: IIPReputationsData[];
+    success: boolean;
+    error: IError;
+    data: IIPReputationsData[];
 }
 interface IURLReputationsDataLookupResultsSource {
     provider: string;
@@ -353,9 +353,9 @@ interface IURLReputationsData {
     lookup_results: IURLReputationsDataLookupResults;
 }
 export interface IURLReputations {
-    success?: boolean;
-    error?: IError;
-    data?: IURLReputationsData[];
+    success: boolean;
+    error: IError;
+    data: IURLReputationsData[];
 }
 interface IDomainReputationsDataLookupResultsSource {
     provider: string;
@@ -374,9 +374,9 @@ interface IDomainReputationsData {
     lookup_results: IDomainReputationsDataLookupResults;
 }
 export interface IDomainReputations {
-    success?: boolean;
-    error?: IError;
-    data?: IDomainReputationsData;
+    success: boolean;
+    error: IError;
+    data: IDomainReputationsData;
 }
 
 export interface IVersion {
@@ -424,9 +424,9 @@ export interface IEngineDefinition {
 }
 
 export interface IMalwareHashFeed {
-    success?: boolean;
-    error?: IError;
-    data?: IMalwareHashFeedData[];
+    success: boolean;
+    error: IError;
+    data: IMalwareHashFeedData[];
 }
 
 interface IMalwareHashFeedData {
@@ -444,9 +444,9 @@ interface IMalwareHashFeedData {
     link: string;
 }
 export interface IFalsePositive {
-    success?: boolean;
-    error?: IError;
-    data?: IFalsePositiveData[];
+    success: boolean;
+    error: IError;
+    data: IFalsePositiveData[];
 }
 
 interface IFalsePositiveData {
@@ -464,9 +464,9 @@ interface IFalsePositiveData {
     link: string;
 }
 export interface IFalsePositiveEngine {
-    success?: boolean;
-    error?: IError;
-    data?: IFalsePositiveEngineData[];
+    success: boolean;
+    error: IError;
+    data: IFalsePositiveEngineData[];
 }
 
 interface IFalsePositiveEngineData {
@@ -485,9 +485,9 @@ interface IFalsePositiveEngineData {
 }
 
 export interface IDownloadLink {
-    status?: boolean;
-    error?: IError;
-    file_path?: string;
+    status: boolean;
+    error: IError;
+    file_path: string;
 }
 export interface IThreatIntelligence {
     from: string;
@@ -509,4 +509,84 @@ interface IThreatIntelligenceInfected {
 
 interface IThreatIntelligenceInfectedScanResult {
     threat_name: string;
+}
+
+export interface IFileScan {
+    success: boolean;
+    error: IError;
+    data_id: string;
+    status: string;
+    in_queue: number;
+    queue_priority: string;
+}
+interface IScanReportSanitized {
+    result: string;
+    data_id: string;
+    reason: string;
+}
+export interface IScanReport {
+    success: boolean;
+    error: IError;
+    data_id: string;
+    status: string;
+    in_queue: number;
+    last_updated: string;
+    scan_result_history_length: number;
+    file_id: string;
+    sanitized: IScanReportSanitized;
+    process_info: {
+        result: 'Blocked';
+        profile: 'Sanitize';
+        post_processing: {
+            copy_move_destination: '';
+            converted_to: 'xls';
+            converted_destination: 'Ft._immediata_group_7893_2019_02_sanitized_by_OPSWAT_MetaDefender_779e0a0966f348fcaecdacc4f6c47e16.xls';
+            actions_ran: 'Sanitized';
+            actions_failed: '';
+        };
+        file_type_skipped_scan: false;
+        blocked_reason: 'Infected';
+    };
+    scan_results: IScanReportScanResults;
+    file_info: {
+        file_size: 88576;
+        upload_timestamp: '2019-02-12T08:19:24.000Z';
+        md5: 'D8ED8287B99E918DA0E30EDEC975AD76';
+        sha1: '1452CE0B131A29DDFC8BA4EF69C77628603CD2AB';
+        sha256: '88B323D7AFE5D9715603570A04B32D35384292739A7B4F47B2B409863A4F822C';
+        file_type_category: 'D';
+        file_type_description: 'Microsoft Excel 97-2003 Workbook';
+        file_type_extension: 'xlsx';
+        display_name: 'Ft._immediata_group_7893_2019_02.xls';
+    };
+    share_file: 1;
+    rest_version: '4';
+    additional_info: [];
+    votes: {
+        up: 0;
+        down: 0;
+    };
+}
+interface IScanReportScanResults {
+    scan_details: IScanReportScanResultsScanDetails;
+    rescan_available: boolean;
+    data_id: string;
+    scan_all_result_i: number;
+    start_time: string;
+    total_time: number;
+    total_avs: number;
+    total_detected_avs: number;
+    progress_percentage: number;
+    in_queue: number;
+    scan_all_result_a: string;
+}
+interface IScanReportScanResultsScanDetails {
+    [key: string]: IScanReportScanResultsScanDetailsAV;
+}
+interface IScanReportScanResultsScanDetailsAV {
+    wait_time: number;
+    threat_found: string;
+    scan_time: number;
+    scan_result_i: number;
+    def_time: string;
 }
