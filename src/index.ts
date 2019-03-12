@@ -2,12 +2,16 @@ import ApiInfo from './ApiInfo';
 import HashLookup from './HashLookup';
 import ReputationService from './ReputationService';
 import Status from './Status';
+import ThreatIntelligenceFeed from './ThreatIntelligence';
+import MalwareSampleSharing from './MalwareSampleSharing';
 
 // exporting modules
 export { ApiInfo };
 export { HashLookup };
 export { ReputationService };
 export { Status };
+export { MalwareSampleSharing };
+export { ThreatIntelligenceFeed };
 export enum SCAN_RESULT_CODE {
     NO_THREATS_FOUND,
     INFECTED_KNOWN,
