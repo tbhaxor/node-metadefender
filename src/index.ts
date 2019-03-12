@@ -1,9 +1,9 @@
 import ApiInfo from './ApiInfo';
 import HashLookup from './HashLookup';
+import MalwareSampleSharing from './MalwareSampleSharing';
 import ReputationService from './ReputationService';
 import Status from './Status';
 import ThreatIntelligenceFeed from './ThreatIntelligence';
-import MalwareSampleSharing from './MalwareSampleSharing';
 
 // exporting modules
 export { ApiInfo };
