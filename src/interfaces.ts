@@ -489,3 +489,24 @@ export interface IDownloadLink {
     error?: IError;
     file_path?: string;
 }
+export interface IThreatIntelligence {
+    from: string;
+    to: string;
+    top_infected: IThreatIntelligenceInfected[];
+}
+interface IThreatIntelligenceInfected {
+    md5: string;
+    sha1: string;
+    sha256: string;
+    data_id: string;
+    total_avs: number;
+    total_detected_avs: number;
+    file_type_category: FILE_TYPES;
+    file_type_extension: string;
+    rank: number;
+    scan_results: IThreatIntelligenceInfectedScanResult;
+}
+
+interface IThreatIntelligenceInfectedScanResult {
+    threat_name: string;
+}
