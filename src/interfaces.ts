@@ -420,3 +420,70 @@ export interface IEngineDefinition {
     'Xvirus Personal Guard': string;
     Zillya: string;
 }
+
+export interface IMalwareHashFeed {
+    success?: boolean;
+    error?: IError;
+    data?: IMalwareHashFeedData[];
+}
+
+interface IMalwareHashFeedData {
+    data_id: string;
+    file_type_category: string;
+    file_type_extension: string;
+    md5: string;
+    sha1: string;
+    sha256: string;
+    scan_all_result_a: string;
+    scan_all_result_i: 1;
+    start_time: string;
+    detected_by: string[];
+    download: string;
+    link: string;
+}
+export interface IFalsePositive {
+    success?: boolean;
+    error?: IError;
+    data?: IFalsePositiveData[];
+}
+
+interface IFalsePositiveData {
+    data_id: string;
+    file_type_category: string;
+    file_type_extension: string;
+    md5: string;
+    sha1: string;
+    sha256: string;
+    scan_all_result_a: string;
+    scan_all_result_i: 1;
+    start_time: string;
+    detected_by: string[];
+    download: string;
+    link: string;
+}
+export interface IFalsePositiveEngine {
+    success?: boolean;
+    error?: IError;
+    data?: IFalsePositiveEngineData[];
+}
+
+interface IFalsePositiveEngineData {
+    data_id: string;
+    file_type_category: string;
+    file_type_extension: string;
+    md5: string;
+    sha1: string;
+    sha256: string;
+    scan_all_result_a: string;
+    scan_all_result_i: 1;
+    start_time: string;
+    detected_by: string[];
+    download: string;
+    link: string;
+}
+
+export interface IDownloadLink {
+    status?: boolean;
+    error?: IError;
+    file_path?: string;
+}
