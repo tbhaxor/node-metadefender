@@ -376,3 +376,47 @@ export interface IDomainReputations {
     error?: IError;
     data?: IDomainReputationsData;
 }
+
+export interface IVersion {
+    version: string;
+}
+
+export interface IEngineDefinition {
+    Aegislab: string;
+    Agnitum: string;
+    Ahnlab: string;
+    Antiy: string;
+    Avira: string;
+    Baidu: string;
+    Bitdefender: string;
+    ByteHero: string;
+    ClamAV: string;
+    Cyren: string;
+    Emsisoft: string;
+    ESET: string;
+    Filseclab: string;
+    Fortinet: string;
+    'F-prot': string;
+    'F-Secure': string;
+    Hauri: string;
+    Huorong: string;
+    Ikarus: string;
+    Jiangmin: string;
+    K7: string;
+    McAfee: string;
+    Nano: string;
+    TACHYON: string;
+    Preventon: string;
+    Quickheal: string;
+    Sophos: string;
+    SUPERAntiSpyware: string;
+    ThreatTrack: string;
+    'Total Defense': string;
+    'Trend Micro': string;
+    'Trend Micro House Call': string;
+    'Vir.IT eXplorer': string;
+    'Vir.IT ML': string;
+    VirusBlokAda: string;
+    'Xvirus Personal Guard': string;
+    Zillya: string;
+}
