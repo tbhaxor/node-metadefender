@@ -1,4 +1,5 @@
 import ApiInfo from './ApiInfo';
+import FileScanning from './FileScan';
 import HashLookup from './HashLookup';
 import MalwareSampleSharing from './MalwareSampleSharing';
 import ReputationService from './ReputationService';
@@ -12,6 +13,7 @@ export { ReputationService };
 export { Status };
 export { MalwareSampleSharing };
 export { ThreatIntelligenceFeed };
+export { FileScanning };
 export enum SCAN_RESULT_CODE {
     NO_THREATS_FOUND,
     INFECTED_KNOWN,

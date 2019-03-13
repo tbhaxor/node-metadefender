@@ -1,12 +1,12 @@
 import request = require('request');
-import { IFileScan, IScanReport } from './interfaces';
+import { IFileScan, IRepositoryScan, IRescanFile, IRescanFiles, IScanReport } from './interfaces';
 
 class FileScanning {
     private api: string;
     constructor(api: string) {
         this.api = api;
     }
-    public scanFile(
+    public scan(
         filename: string,
         archivepwd?: string,
         samplesharing?: boolean,
@@ -45,7 +45,7 @@ class FileScanning {
     }
 
     // tslint:disable-next-line: variable-name
-    public scanReports(dataId: string, file_metadata?: boolean): Promise<IScanReport> {
+    public reports(dataId: string, file_metadata?: boolean): Promise<IScanReport> {
         return new Promise((resolve, reject) => {
             request.get(
                 `https://api.metadefender.com/v4/file/${dataId}`,
@@ -54,6 +54,71 @@ class FileScanning {
                     if (err) {
                         reject(err);
                     } else {
+                        // tslint:disable-next-line: no-unsafe-any
+                        resolve(JSON.parse(res.body));
+                    }
+                }
+            );
+        });
+    }
+
+    public rescan(fileId: string): Promise<IRescanFile> {
+        return new Promise((resolve, reject) => {
+            request.get(
+                `https://api.metadefender.com/v4/file/${fileId}/rescan`,
+                { headers: { apikey: this.api } },
+                (err, res) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        // tslint:disable-next-line: no-unsafe-any
+                        resolve(JSON.parse(res.body));
+                    }
+                }
+            );
+        });
+    }
+
+    public rescanMultiple(fileIds: string[]): Promise<IRescanFiles> {
+        return new Promise((resolve, reject) => {
+            request.post(
+                `https://api.metadefender.com/v4/file/rescan`,
+                { headers: { apikey: this.api }, body: JSON.stringify({ file_ids: fileIds }) },
+                (err, res) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        // tslint:disable-next-line: no-unsafe-any
+                        resolve(JSON.parse(res.body));
+                    }
+                }
+            );
+        });
+    }
+
+    public repository(
+        source: 'github' | 'bitbucket' | 'gitlab',
+        username: string,
+        ref: string,
+        repository: string
+    ): Promise<IRepositoryScan> {
+        return new Promise((resolve, reject) => {
+            request.post(
+                'https://api.metadefender.com/v4/repo',
+                {
+                    body: JSON.stringify({
+                        ref,
+                        repository,
+                        source,
+                        username
+                    }),
+                    headers: { apikey: this.api, 'Content-Type': 'application/json' }
+                },
+                (err, res) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        // tslint:disable-next-line: no-unsafe-any
                         resolve(JSON.parse(res.body));
                     }
                 }

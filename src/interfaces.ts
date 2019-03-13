@@ -1,5 +1,3 @@
-import { FILE_TYPES } from '.';
-
 /**
  * @interface IApiInfoError
  */
@@ -100,7 +98,7 @@ interface IHashLookupFileInfo {
     md5: string;
     sha1: string;
     sha256: string;
-    file_type_category: FILE_TYPES;
+    file_type_category: string;
     file_type_description: string;
     file_type_extension: string;
     display_name: string;
@@ -431,7 +429,7 @@ export interface IMalwareHashFeed {
 
 interface IMalwareHashFeedData {
     data_id: string;
-    file_type_category: FILE_TYPES;
+    file_type_category: string;
     file_type_extension: string;
     md5: string;
     sha1: string;
@@ -451,7 +449,7 @@ export interface IFalsePositive {
 
 interface IFalsePositiveData {
     data_id: string;
-    file_type_category: FILE_TYPES;
+    file_type_category: string;
     file_type_extension: string;
     md5: string;
     sha1: string;
@@ -471,7 +469,7 @@ export interface IFalsePositiveEngine {
 
 interface IFalsePositiveEngineData {
     data_id: string;
-    file_type_category: FILE_TYPES;
+    file_type_category: string;
     file_type_extension: string;
     md5: string;
     sha1: string;
@@ -501,7 +499,7 @@ interface IThreatIntelligenceInfected {
     data_id: string;
     total_avs: number;
     total_detected_avs: number;
-    file_type_category: FILE_TYPES;
+    file_type_category: string;
     file_type_extension: string;
     rank: number;
     scan_results: IThreatIntelligenceInfectedScanResult;
@@ -534,38 +532,42 @@ export interface IScanReport {
     scan_result_history_length: number;
     file_id: string;
     sanitized: IScanReportSanitized;
-    process_info: {
-        result: 'Blocked';
-        profile: 'Sanitize';
-        post_processing: {
-            copy_move_destination: '';
-            converted_to: 'xls';
-            converted_destination: 'Ft._immediata_group_7893_2019_02_sanitized_by_OPSWAT_MetaDefender_779e0a0966f348fcaecdacc4f6c47e16.xls';
-            actions_ran: 'Sanitized';
-            actions_failed: '';
-        };
-        file_type_skipped_scan: false;
-        blocked_reason: 'Infected';
-    };
+    process_info: IScanReportProcessInfo;
     scan_results: IScanReportScanResults;
-    file_info: {
-        file_size: 88576;
-        upload_timestamp: '2019-02-12T08:19:24.000Z';
-        md5: 'D8ED8287B99E918DA0E30EDEC975AD76';
-        sha1: '1452CE0B131A29DDFC8BA4EF69C77628603CD2AB';
-        sha256: '88B323D7AFE5D9715603570A04B32D35384292739A7B4F47B2B409863A4F822C';
-        file_type_category: 'D';
-        file_type_description: 'Microsoft Excel 97-2003 Workbook';
-        file_type_extension: 'xlsx';
-        display_name: 'Ft._immediata_group_7893_2019_02.xls';
-    };
-    share_file: 1;
-    rest_version: '4';
-    additional_info: [];
-    votes: {
-        up: 0;
-        down: 0;
-    };
+    file_info: IScanReportFileInfo;
+    share_file: number;
+    rest_version: string;
+    additional_info: any[];
+    votes: IScanReportVotes;
+}
+interface IScanReportVotes {
+    up: number;
+    down: number;
+}
+interface IScanReportFileInfo {
+    file_size: number;
+    upload_timestamp: string;
+    md5: string;
+    sha1: string;
+    sha256: string;
+    file_type_category: string;
+    file_type_description: string;
+    file_type_extension: string;
+    display_name: string;
+}
+interface IScanReportProcessInfo {
+    result: string;
+    profile: string;
+    post_processing: IScanReportProcessInfoPostProcessing;
+    file_type_skipped_scan: boolean;
+    blocked_reason: string;
+}
+interface IScanReportProcessInfoPostProcessing {
+    copy_move_destination: string;
+    converted_to: string;
+    converted_destination: string;
+    actions_ran: string;
+    actions_failed: string;
 }
 interface IScanReportScanResults {
     scan_details: IScanReportScanResultsScanDetails;
@@ -589,4 +591,37 @@ interface IScanReportScanResultsScanDetailsAV {
     scan_time: number;
     scan_result_i: number;
     def_time: string;
+}
+
+export interface IRescanFile {
+    success: boolean;
+    error: IError;
+    data_id: string;
+    status: string;
+    in_queue: number;
+    queue_priority: string;
+}
+
+export interface IRescanFiles {
+    data: IRescanFilesData[];
+}
+
+interface IRescanFilesData {
+    data_id: string;
+    status: string | number;
+    in_queue: number;
+    queue_priority: string;
+    file_id: string;
+    code: number;
+    err: string;
+}
+
+export interface IRepositoryScan {
+    data_id: string;
+    status: string;
+    in_queue: string;
+    queue_priority: string;
+    rest_ip: string;
+    success: boolean;
+    error: IError;
 }
