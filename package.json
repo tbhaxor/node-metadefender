@@ -1,6 +1,6 @@
 {
   "name": "metadefender",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Metadefender wrapper for node js",
   "main": "dist/index.js",
   "scripts": {
@@ -11,7 +11,16 @@
     "type": "git",
     "url": "git+https://github.com/tbhaxor/node-metadefender.git"
   },
-  "keywords": ["metadefender", "tbhaxor", "gurkirat", "virus scan", "class", "wrapper", "ip scan", "domain scan"],
+  "keywords": [
+    "metadefender",
+    "tbhaxor",
+    "gurkirat",
+    "virus scan",
+    "class",
+    "wrapper",
+    "ip scan",
+    "domain scan"
+  ],
   "author": "Gurkirat Singh <tbhaxor@gmail.com>",
   "license": "ISC",
   "bugs": {
