@@ -1,6 +1,6 @@
 <center>
 
-# node-metadefender
+<h1> node-metadefender </h1>
 
 ![npm bundle size](https://img.shields.io/bundlephobia/min/metadefender.svg?style=flat-square)&nbsp;&nbsp;&nbsp;![GitHub package.json version](https://img.shields.io/github/package-json/v/tbhaxor/node-metadefender.svg?style=flat-square)&nbsp;&nbsp;&nbsp;![](https://img.shields.io/npm/dw/metadefender.svg?style=flat-square)&nbsp;&nbsp;&nbsp;![](https://img.shields.io/npm/l/metadefender.svg?style=flat-square")
 <br>
