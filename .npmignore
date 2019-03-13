@@ -66,6 +66,6 @@ src
 Gruntfile
 .github
 *.md
-.prettierrv
+.prettierrc
 tslint.json
 .eslintrc.json
