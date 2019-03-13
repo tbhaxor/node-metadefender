@@ -59,5 +59,12 @@ typings/
 
 # next.js build output
 .next
+
+# contributer
 src
 .tscache
+Gruntfile
+.github
+*.md
+.prettierrv
+tslint.json
