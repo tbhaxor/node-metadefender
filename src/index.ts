@@ -1,4 +1,5 @@
 import ApiInfo from './ApiInfo';
+import ApplicationInformation from './ApplicationInformation';
 import FileScanning from './FileScan';
 import HashLookup from './HashLookup';
 import MalwareSampleSharing from './MalwareSampleSharing';
@@ -14,6 +15,7 @@ export { Status };
 export { MalwareSampleSharing };
 export { ThreatIntelligenceFeed };
 export { FileScanning };
+export { ApplicationInformation };
 export enum SCAN_RESULT_CODE {
     NO_THREATS_FOUND,
     INFECTED_KNOWN,

@@ -435,7 +435,7 @@ interface IMalwareHashFeedData {
     sha1: string;
     sha256: string;
     scan_all_result_a: string;
-    scan_all_result_i: 1;
+    scan_all_result_i: number;
     start_time: string;
     detected_by: string[];
     download: string;
@@ -455,7 +455,7 @@ interface IFalsePositiveData {
     sha1: string;
     sha256: string;
     scan_all_result_a: string;
-    scan_all_result_i: 1;
+    scan_all_result_i: number;
     start_time: string;
     detected_by: string[];
     download: string;
@@ -475,7 +475,7 @@ interface IFalsePositiveEngineData {
     sha1: string;
     sha256: string;
     scan_all_result_a: string;
-    scan_all_result_i: 1;
+    scan_all_result_i: number;
     start_time: string;
     detected_by: string[];
     download: string;
@@ -624,4 +624,236 @@ export interface IRepositoryScan {
     rest_ip: string;
     success: boolean;
     error: IError;
+}
+
+export interface IApplicationInformation {
+    success: boolean;
+    error: IError;
+    data: IApplicationInformationData[];
+}
+interface IApplicationInformationDataVendorInfos {
+    vendor_name: string;
+    wa_vendor_id: string;
+}
+interface IApplicationInformationDataOsInfos {
+    os_name: string;
+    os_name_norm: string;
+    os_type: number;
+    arch: string;
+    kernel_version: string;
+    wa_os_id: string;
+    service_pack: string;
+}
+interface IApplicationInformationDataProductInfos {
+    product_name: string;
+    product_version: string;
+    wa_product_id: string;
+    wa_signature_id: string;
+}
+interface IApplicationInformationData {
+    vendor_infos: IApplicationInformationDataVendorInfos[];
+    os_infos: IApplicationInformationDataOsInfos[];
+    product_infos: IApplicationInformationDataProductInfos[];
+    device_identity_stats: IApplicationInformationDataDeviceIdentityStats[];
+    file_infos: IApplicationInformationDataFileInfos[];
+    product_info_stats: IApplicationInformationDataProductInfoStats[];
+    source_ip_stats: IApplicationInformationDataSourceIPStats[];
+    file_path_stats: IApplicationInformationDataFilePathStats[];
+    loaded_component_stats: IApplicationInformationDataLoadedComponentStats[];
+    computer_type_stats: IApplicationInformationDataComputerTypeStats[];
+    connection_stats: any[];
+    categories: IApplicationInformationDataCategories[];
+}
+interface IApplicationInformationDataDeviceIdentityStats {
+    reported_ts_yyww: string;
+    device_identity_count: number;
+    device_identity_count_rank_over_sha1: number;
+}
+interface IApplicationInformationDataFileInfos {
+    file_name: string;
+    file_name_lower: string;
+    file_size: number;
+    file_property_version: string;
+    file_property_version_norm: string;
+    sha1: string;
+}
+interface IApplicationInformationDataProductInfoStats {
+    product_name_norm: string;
+    product_name_norm_count: number;
+    product_name_norm_rank_over_sha1: number;
+    product_version_norm: string;
+}
+interface IApplicationInformationDataSourceIPStats {
+    reported_ts_yyww: string;
+    source_ip_count: number;
+    source_ip_count_rank_over_sha1: number;
+}
+interface IApplicationInformationDataFilePathStats {
+    file_path: string;
+    file_path_count: number;
+    file_path_rank_over_sha1: number;
+}
+interface IApplicationInformationDataLoadedComponentStats {
+    loaded_component: string;
+    loaded_component_count: number;
+}
+interface IApplicationInformationDataComputerTypeStats {
+    computer_type: string;
+    computer_type_count: number;
+    computer_type_rank_over_sha1: number;
+}
+interface IApplicationInformationDataCategories {
+    category_name: string;
+    wa_category_id: string;
+}
+export interface IEXIF {
+    Megapixels: number;
+    ImageSize: string;
+    YCbCrSubSampling: string;
+    ColorComponents: number;
+    BitsPerSample: number;
+    EncodingProcess: string;
+    ImageHeight: number;
+    ImageWidth: number;
+    YResolution: number;
+    XResolution: number;
+    ResolutionUnit: string;
+    JFIFVersion: number;
+    MIMEType: string;
+    FileTypeExtension: string;
+    FileType: string;
+    FileSize: string;
+    FileName: string;
+    ExifToolVersion: number;
+    success: boolean;
+    error: IError;
+}
+interface IPESectionHeader {
+    name: string;
+    number_of_relocations: number;
+    characteristics: string[];
+    virtual_address: string;
+    pointer_to_linenumbers: string;
+    pointer_to_raw_data: string;
+    entropy: number;
+    raw_size: number;
+    pointer_to_relocations: string;
+    virtual_size: number;
+    number_of_linenumbers: number;
+    md5: string;
+}
+interface IPEImportedDLL {
+    functions: string[];
+    name: string;
+}
+interface IPEVSVersionInfo {
+    original_filename: string;
+    comments: string;
+    product_version: string;
+    legal_copyright: string;
+    company_name: string;
+    internal_name: string;
+    product_name: string;
+    file_description: string;
+}
+interface IPEOptionalHeaders {
+    subsystem: string;
+    subsystem_version: string;
+    linker_version: string;
+    image_version: string;
+    checksum: string;
+    os_version: string;
+    entry_point: string;
+    image_size: number;
+    initialized_data_size: number;
+    uninitialized_data_size: number;
+    code_size: number;
+    pe_type: string;
+}
+interface IPEHeaders {
+    characteristics: string[];
+    number_of_sections: number;
+    pointer_to_symbol_table: string;
+    machine_type: string;
+    compilation_time: string;
+    number_of_symbols: number;
+}
+interface IPEResourceInfoResourceID {
+    resource_langs: string[];
+    name: string;
+}
+interface IPEResourceInfo {
+    resource_ids: IPEResourceInfoResourceID[];
+    name: string;
+}
+export interface IPE {
+    success: string;
+    error: IError;
+    section_headers: IPESectionHeader[];
+    imported_dlls: IPEImportedDLL[];
+    vs_version_info: IPEVSVersionInfo;
+    imphash: string;
+    optional_headers: IPEOptionalHeaders;
+    headers: IPEHeaders;
+    pehash: string;
+    exported_functions: string[];
+    resource_info: IPEResourceInfo[];
+}
+interface IAndroidSdk {
+    minSdkVersion: number;
+    targetSdkVersion: number;
+}
+interface IAndroidGeneric {
+    name: string;
+}
+interface IAndroidApplicationActivitiesIntentFilters {
+    actions: any[];
+    categories: IAndroidGeneric[];
+    data: any[];
+}
+interface IAndroidApplicationActivities {
+    label: string;
+    name: string;
+    intentFilters: IAndroidApplicationActivitiesIntentFilters[];
+    metaData: any[];
+}
+interface IAndroidApplicationLauncherActivities {
+    label: string;
+    name: string;
+    intentFilters: IAndroidApplicationActivitiesIntentFilters[];
+    metaData: any[];
+}
+interface IAndroidApplication {
+    theme: string;
+    label: string;
+    icon: string;
+    debuggable: boolean;
+    allowBackup: boolean;
+    activities: IAndroidApplicationActivities[];
+    activityAliases: any[];
+    launcherActivities: IAndroidApplicationLauncherActivities[];
+    services: any[];
+    receivers: any[];
+    providers: any[];
+    usesLibraries: any[];
+}
+
+export interface IAndroid {
+    success: boolean;
+    error: IError;
+    versionCode: number;
+    versionName: string;
+    package: string;
+    usesPermissions: any[];
+    permissions: any[];
+    permissionTrees: any[];
+    permissionGroups: any[];
+    instrumentation: null;
+    usesSdk: IAndroidSdk;
+    usesConfiguration: null;
+    usesFeatures: any[];
+    supportsScreens: null;
+    compatibleScreens: any[];
+    supportsGlTextures: any[];
+    application: IAndroidApplication;
 }
