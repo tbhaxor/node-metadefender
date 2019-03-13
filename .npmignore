@@ -68,3 +68,4 @@ Gruntfile
 *.md
 .prettierrv
 tslint.json
+.eslintrc.json
