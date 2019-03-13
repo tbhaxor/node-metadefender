@@ -1,16 +1,9 @@
-<center>
 
-<h1> node-metadefender </h1>
-
-![npm bundle size](https://img.shields.io/bundlephobia/min/metadefender.svg?style=flat-square)&nbsp;&nbsp;&nbsp;![GitHub package.json version](https://img.shields.io/github/package-json/v/tbhaxor/node-metadefender.svg?style=flat-square)&nbsp;&nbsp;&nbsp;![](https://img.shields.io/npm/dw/metadefender.svg?style=flat-square)&nbsp;&nbsp;&nbsp;![](https://img.shields.io/npm/l/metadefender.svg?style=flat-square")
-<br>
+# node-metadefender ![npm bundle size](https://img.shields.io/bundlephobia/min/metadefender.svg?style=flat-square)&nbsp;&nbsp;&nbsp;![GitHub package.json version](https://img.shields.io/github/package-json/v/tbhaxor/node-metadefender.svg?style=flat-square)&nbsp;&nbsp;&nbsp;![](https://img.shields.io/npm/dw/metadefender.svg?style=flat-square)&nbsp;&nbsp;&nbsp;![](https://img.shields.io/npm/l/metadefender.svg?style=flat-square")
+> Metadefender wrapper for node js
 
 [![](https://nodei.co/npm/metadefender.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/dnstools/)
-<br>
-<hr>
-</center>
 
-> Metadefender wrapper for node js
 
 [Metadefender](https://metadefender.opswat.com/) is a cloud-based data sanitization (Content Disarm &amp; Reconstruction), vulnerability detection and multi-scanning with options for free and commercial users.
 
@@ -29,7 +22,7 @@ It is a product of [opswat](https://opswat.com/)
 
 ## How to setup
 
-## For developers
+### For developers
 
 ```sh
 npm i --save metadefender
