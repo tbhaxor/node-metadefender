@@ -96,6 +96,7 @@ The following are the endpoints current supported by `node-metadefender`
 ## Contribution
 
 Feel free to open new pull requests for the repository
+
 **Note:** Before contributing to the repo, make sure you have gone through [Contributing.md](https://github.com/tbhaxor/node-metadefender/blob/master/CONTRIBUTING.md)
 
 ## License
