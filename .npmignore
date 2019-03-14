@@ -61,7 +61,6 @@ typings/
 .next
 
 # contributer
-src
 .tscache
 Gruntfile
 .github
