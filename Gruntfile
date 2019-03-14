@@ -1,9 +1,21 @@
-module.exports = function (grunt) {
+// tslint:disable-next-line: no-unsafe-any
+module.exports = (grunt) => {
+    // tslint:disable-next-line: no-unsafe-any
     grunt.initConfig({
+        concat: {
+            dist: {
+                dest: './dist/typings/index.d.ts',
+                src: ['./dist/typings/*'],
+            },
+            options: {
+                separator: '\n// -----------------------------\n',
+            },
+        },
         ts: {
             default: {
-                src: ['src/**/*.ts'],
                 outDir: 'dist/',
+                // out: "./dist/metadefender.js",
+                src: ['src/**/*.ts'],
             },
 
             options: {
@@ -14,7 +26,11 @@ module.exports = function (grunt) {
         }
     });
 
+    // tslint:disable-next-line: no-unsafe-any
     grunt.loadNpmTasks('grunt-ts');
+    // tslint:disable-next-line: no-unsafe-any
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
+    // tslint:disable-next-line: no-unsafe-any
     grunt.registerTask('default', ['ts']);
 };

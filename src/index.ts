@@ -8,13 +8,21 @@ import Status from './Status';
 import ThreatIntelligenceFeed from './ThreatIntelligence';
 
 // exporting modules
+/// <reference types="../dist/ApiInfo" />
 export { ApiInfo };
+/// <reference types="../dist/HashLookup" />
 export { HashLookup };
+/// <reference types="../dist/ReputationService" />
 export { ReputationService };
+/// <reference types="../dist/Status" />
 export { Status };
+/// <reference types="../dist/MalwareSampleSharing" />
 export { MalwareSampleSharing };
+/// <reference types="../dist/ThreatIntelligence" />
 export { ThreatIntelligenceFeed };
+/// <reference types="../dist/FileScan" />
 export { FileScanning };
+/// <reference types="../dist/ApplicationInformation" />
 export { ApplicationInformation };
 export enum SCAN_RESULT_CODE {
     NO_THREATS_FOUND,

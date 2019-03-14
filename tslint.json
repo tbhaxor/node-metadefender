@@ -5,7 +5,7 @@
     ],
     "jsRules": {},
     "rules": {
-        "no-unsafe-any": true,
+        "no-unsafe-any": false,
         "quotemark": [true, "single"],
         "trailing-comma": false,
         "object-literal-key-quotes": false
