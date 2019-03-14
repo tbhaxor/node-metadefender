@@ -23,7 +23,7 @@
     "domain scan"
   ],
   "author": "Gurkirat Singh <tbhaxor@gmail.com>",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/tbhaxor/node-metadefender/issues"
   },
