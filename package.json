@@ -1,6 +1,6 @@
 {
   "name": "metadefender",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Metadefender wrapper for node js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
