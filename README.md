@@ -1,5 +1,5 @@
-
 # node-metadefender ![npm bundle size](https://img.shields.io/bundlephobia/min/metadefender.svg?style=flat-square) ![GitHub package.json version](https://img.shields.io/github/package-json/v/tbhaxor/node-metadefender.svg?style=flat-square) ![](https://img.shields.io/npm/dw/metadefender.svg?style=flat-square) ![NPM](https://img.shields.io/npm/l/metadefender.svg?style=flat-square)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftbhaxor%2Fnode-metadefender.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftbhaxor%2Fnode-metadefender?ref=badge_shield)
 > Metadefender wrapper for node js
 
 [![](https://nodei.co/npm/metadefender.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/metadefender/)
@@ -102,3 +102,5 @@ Feel free to open new pull requests for the repository
 ## License
 
 **node-metadefender** is licensed under [GPL-3.0](https://github.com/tbhaxor/node-metadefender/blob/master/LICENSE)
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftbhaxor%2Fnode-metadefender.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftbhaxor%2Fnode-metadefender?ref=badge_large)
