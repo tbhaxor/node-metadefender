@@ -33,13 +33,13 @@ npm i --save metadefender
 1. Clone the repo https://github.com/tbhaxor/node-metadefender.git
 
    ```sh
-   cd node-metadefender
+   git clone https://github.com/tbhaxor/node-metadefender.git
    ```
 
 2. Change the directory
 
    ```sh
-   git clone https://github.com/tbhaxor/node-metadefender.git
+   cd node-metadefender
    ```
 
 3. Install the development dependencies
