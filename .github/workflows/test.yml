@@ -1,0 +1,38 @@
+name: Testing application
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        node-version:
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+
+    runs-on: ubuntu-20.04
+
+    name: Testing on ${{ matrix.node-version }}
+
+    steps:
+      - uses: actions/checkout@v2
+        name: Cloning
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm i -g yarn && yarn
+        name: Install dependencies
+      - run: yarn test
+        name: Testing code
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+      - run: yarn lint
+        name: Checking code style
