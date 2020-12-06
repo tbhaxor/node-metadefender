@@ -10,16 +10,13 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 10
-          - 11
-          - 12
           - 13
           - 14
           - 15
 
     runs-on: ubuntu-20.04
 
-    name: Testing on ${{ matrix.node-version }}
+    name: Testing on Node v${{ matrix.node-version }}
 
     steps:
       - uses: actions/checkout@v2
