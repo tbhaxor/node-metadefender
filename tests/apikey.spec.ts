@@ -34,4 +34,12 @@ describe('API Keys', function () {
       done();
     });
   }).timeout(60 * 1000);
+
+  it('should send the valid object on scan history request', (done) => {
+    defender.apiKey.history().then((r) => {
+      console.log(r);
+      expect(r).to.be.instanceOf(Object);
+      done();
+    });
+  });
 });
