@@ -15,6 +15,7 @@
     "max-len": "off",
     "space-before-function-paren": "off",
     "camelcase": "off",
-    "indent": "off"
+    "indent": "off",
+    "comma-dangle": "off"
   }
 }
