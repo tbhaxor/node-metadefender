@@ -13,6 +13,8 @@
   "rules": {
     "require-jsdoc": "off",
     "max-len": "off",
-    "space-before-function-paren": "off"
+    "space-before-function-paren": "off",
+    "camelcase": "off",
+    "indent": "off"
   }
 }
